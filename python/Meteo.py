@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 
 def weatherDB_connect():
     """Connect to weather database"""
-    f = open("mylogin_me.txt", "r")
+    f = open("mylogin.txt", "r")
     mylogin = f.readline().strip("\n")
     mypass = f.readline().strip("\n")
     f.close()
