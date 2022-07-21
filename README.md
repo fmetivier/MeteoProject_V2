@@ -1,4 +1,4 @@
-# MeteoLog II: an Autonomous NON connected Meteorologic Station using Arduino that records PRECIPITATION TIME
+# MeteoLog V2: an Autonomous NON connected Meteorologic Station using Arduino that records PRECIPITATION TIME
 
 * [Introduction](##introduction)
 * [Station](##station)
@@ -47,6 +47,10 @@ You can get the equivalent without the logger for ~ 100€ (Yeap..., look at Rai
 * The auger pluviometer is connected to the digital port 2 that enables interruptions to be raised. I add a capacitor to prevent false counts.
 * SDcard module to store the data
 * Solar charger connected to Lead battery and to the Uno.
+
+
+![](./sketch/Meteo_V2_bb.jpg)
+Note that solar panel and lead battery connection to the DFR sunflower module and its connection to Vin/GND are not depicted here.
 
 ## Arduino scripts <a class="anchor" id="arduino-scripts"></a>
 
