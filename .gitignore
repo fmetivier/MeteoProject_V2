@@ -37,9 +37,9 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
-.coverage
+*.coverage
 .coverage.*
-.cache
+*.cache
 nosetests.xml
 coverage.xml
 *,cover
@@ -55,10 +55,10 @@ local_settings.py
 
 # Flask stuff:
 instance/
-.webassets-cache
+*.webassets-cache
 
 # Scrapy stuff:
-.scrapy
+*.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -67,16 +67,16 @@ docs/_build/
 target/
 
 # IPython Notebook
-.ipynb_checkpoints
+*.ipynb_checkpoints
 
 # pyenv
-.python-version
+*.python-version
 
 # celery beat schedule file
 celerybeat-schedule
 
 # dotenv
-.env
+*.env
 
 # virtualenv
 .venv/
@@ -84,7 +84,7 @@ venv/
 ENV/
 
 # Spyder project settings
-.spyderproject
+*.spyderproject
 
 #latex stuff
 *.pdf
@@ -100,28 +100,28 @@ ENV/
 *.json
 
 #sqlite db
-.db
+#*.db
 
 #html
-.html
+#.html
 
 # Rope project settings
-.ropeproject
+*.ropeproject
 
 #images
-.jpeg
-.jpg
-.png
-.tiff
-.wld
-.tif
+*.jpeg
+*.jpg
+*.png
+*.tiff
+*.wld
+*.tif
 
 #ancillary
-.xml
-.vrt
+*.xml
+*.vrt
 
 # compressed
-.zip
+*.zip
 
 
 #directories
@@ -132,3 +132,5 @@ map/figures/
 folium/include/
 python-mysql/figures/
 python-mysql/src/identifiers.txt
+
+./python/mylogin0.txt

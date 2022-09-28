@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\begin{abstract}
+Nous analysons les précipitations du 16 août 2022 à Paris quand un orage de grande ampleur s'est abattu sur la ville. Nous utilisons les données d'un pluviomètre à auget basculeur modifié. La modification consiste à enregistrer les instants de bascule de l'auget et non  à comptabiliser le nombre de bascule durant une durée (la plus fréquente étant de 1 heure). Dans le cas d'un orage extrêmement intense mais de courte durée (moins d'une heure et demi) nous montrons l'intérêt de ce genre de modification peu couteuse.
+\end{abstract}
+
+Il est tombé $31.5$ mm de pluie entre 16:46:45 et 18:08:21 UTC sur le toit de la terrasse du 5ème étage le 16 Août 2022.
+soit $1.36$ heure ou encore 1 heure 21 minutes et 36 secondes. La précipitation horaire moyenne est donc de  23.16 mm/h sur l'IPG. 
+cet orage à été enregistré au travers de 126 basculement de l'auget.
+Les deux stations voisine dont les données sont en accès libre, celle du LATMOS et celle situé dans le 6ème à saint Germain donne des valeurs proches: $30.8$mm entre 16h et 19h pour la station de Saint Germain des Prés et $35$mm entre 16h et 19h pour la station du LATMOS.
+
+Si on considère un histogramme de pluie tel qu'il est fournit par n'importe quelle station classique avec un pas de temps horaire
+
+Si on améliore progressivement la précision tout en gardant un pas constant on tombe sur le problème des valeurs nulles de précipitation. 
+
+la meilleure solution avec un auget consiste à enregistrer les temps de bascule. l'intensité est alors donnée par
+\begin{equation}
+I = H/dt 
+\end{equation}
+ou $H$ correspond à la hauteur de précipitation d'un auget rempli et $dt$ l'intervalle entre les deux bascules.Dans notre cas $H=0.25$mm. 
+
+La limite est ici imposée en théorie par la valeur de H et en pratique par la précision de l'horloge qui dans la plupart des cas est (pour des raisons de coût) de 1 seconde. La valeur maximale $I_{max}$ est donc donnée par
+\begin{equation}
+I_max = H/1 = H
+\end{equation}
+soit $I_{max} = 2.5\cdot 10^{-4}$m/s dans notre cas ou encore dans une unité que tout le monde comprend $900$ mm/h
+
+Dans le cas du 16 Août l'orage était réellement exceptionnel la période la plus courte entre deux bascules de l'auget est de 4 secondes soit une intensité de $225$mm/h ou $6.25\cdot 1{-5}$m/s 
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=1]{storm_20220816.pdf}
+\caption{}
+\end{figure}
+
+
+\end{document}
