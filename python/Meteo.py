@@ -307,7 +307,7 @@ def precip_compare_16():
 
 
 if __name__ == "__main__":
-    load_records(fname="METEOLOG_1409.TXT")
+    load_records(fname="METEOLOG_0410.TXT")
     # temp_record()
     # temperature_hour_avg()
     precip_1()
