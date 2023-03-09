@@ -43,8 +43,11 @@ def load_records(station_code="PA01", fname="METEOLOG.txt"):
         #     sql = "insert into TH values (%s,%s,%s,%s,%s,NULL)"
         #     conn.execute(sql, [data[1], data[2], data[3], data[4], station_code])
         if "p" in data[0]:
-            sql = "insert into P values (NULL,%s,%s,%s,%s)"
-            conn.execute(sql, [data[1], data[2], data[3], station_code])
+            try:
+                sql = "insert into P values (NULL,%s,%s,%s,%s)"
+                conn.execute(sql, [data[1], data[2], data[3], station_code])
+            except:
+                print("record registration failed for line %s" % (line))
     conn.close()
 
 
@@ -97,12 +100,21 @@ def precip_1(station_code="PA01"):
     """
     conn = weatherDB_connect()
 
-    sql = "select str_to_date(concat(mdate,' ',mtime),'%Y-%m-%d %T') as t, N from P"
-    sql += " where stcode = '%s'" % (station_code)
+    sql = """select concat(mdate,' ',mtime) as t, N from P  where stcode = '%s'""" % (
+        station_code
+    )
 
-    df = pd.read_sql(sql, conn)
-    temps = df["t"].tolist()
-    precip = df["N"].tolist()
+    res = conn.execute(sql).fetchall()
+    temps = []
+    precip = []
+
+    for r in res:
+        temps.append(datetime.strptime(r[0], "%Y-%m-%d %H:%M:%S"))
+        precip.append(r[1])
+
+    # df = pd.read_sql(sql, conn)
+    # temps = df["t"].tolist()
+    # precip = df["N"].tolist()
 
     tts = [0]  # arbitrary first timestamp
     for t in temps:
@@ -307,7 +319,7 @@ def precip_compare_16():
 
 
 if __name__ == "__main__":
-    load_records(fname="METEOLOG_0410.TXT")
+    # load_records(fname="METEOLOG_0803.TXT")
     # temp_record()
     # temperature_hour_avg()
     precip_1()
